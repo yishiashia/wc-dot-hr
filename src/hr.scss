@@ -1,0 +1,23 @@
+:host {
+  --hr-dots-number: 3;
+  --hr-light-color: #666;
+  --hr-dark-color: #ccc;
+  --hr-dot-size: 8px;
+  --hr-space-between: 24px;
+}
+
+hr {
+  --single-width: calc(var(--hr-space-between) + var(--hr-dot-size));
+  display: block;
+  border: 0px;
+  width: min(100%, calc(var(--single-width) * var(--hr-dots-number)));
+  height: var(--hr-dot-size);
+  margin: 30px auto;
+  background: radial-gradient(circle closest-side, var(--hr-light-color) 98%, #0000) 0 / calc(100% / var(--hr-dots-number)) 100%;
+}
+
+@media (prefers-color-scheme: dark) {
+  hr {
+    background: radial-gradient(circle closest-side, var(--hr-dark-color) 98%, #0000) 0 / calc(100% / var(--hr-dots-number)) 100%;
+  }
+}
