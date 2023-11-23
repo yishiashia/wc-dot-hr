@@ -43,6 +43,7 @@ jobs:
       - run: npm ci
       - run: npm t
       - run: npm run build
+      - run: mkdir gh_pages
       - run: cp index.html gh_pages/
       - run: cp -r dist/* gh_pages/
 
