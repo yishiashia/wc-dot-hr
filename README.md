@@ -72,7 +72,7 @@ There is `jsDelivr` CDN available for quickly integrated with your web page.
 ```
 
 ## Demo page
-Demo: [https://yishiashia.github.io/dot-hr/](https://yishiashia.github.io/dot-hr/)
+Demo: [https://yishiashia.github.io/wc-dot-hr/](https://yishiashia.github.io/wc-dot-hr/)
 
 ## Usage
 
