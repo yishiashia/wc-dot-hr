@@ -1,0 +1,4 @@
+index.html linguist-vendored
+*.js linguist-vendored
+tests linguist-vendored
+
