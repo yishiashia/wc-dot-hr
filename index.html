@@ -4,9 +4,124 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>WebComponent | DotHr</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
     <script src="dot-hr.js"></script>
+    <script>
+      function colorSwitch() {
+        const is_dark = document.getElementById("color-switch").checked;
+        console.log("dark:", is_dark);
+        const hrs = document.querySelectorAll("dot-hr");
+        if (is_dark) {
+          document.body.setAttribute("data-theme", "dark");
+          hrs.forEach((hr) => {
+            hr.style.setProperty("--hr-light-color", "#ccc");
+            hr.style.setProperty("--hr-dark-color", "#ccc");
+          });
+        } else {
+          document.body.setAttribute("data-theme", "light");
+          hrs.forEach((hr) => {
+            hr.style.setProperty("--hr-light-color", "#666");
+            hr.style.setProperty("--hr-dark-color", "#666");
+          });
+        }
+      }
+    </script>
+
+    <style>
+      [data-theme="light"] {
+        --bg-color: #ffffff;
+        --font-color: #000000;
+      }
+      [data-theme="dark"] {
+        --bg-color: #000000;
+        --font-color: #ffffff;
+      }
+      body {
+        background-color: var(--bg-color);
+        color: var(--font-color);
+      }
+      label {
+        margin-right: 10px;
+      }
+      .noselect {
+        -webkit-touch-callout: none; /* iOS Safari */
+        -webkit-user-select: none; /* Safari */
+        -khtml-user-select: none; /* Konqueror HTML */
+        -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+        user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+      }
+      .container .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .form-switch {
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        padding-left: 0;
+      }
+      .form-switch input.form-check-input {
+        margin: auto 0 !important;
+        height: 1.5rem;
+        width: 2.75rem !important;
+        border-radius: 3rem;
+        cursor: pointer;
+      }
+      .form-switch label.form-check-label {
+        margin-left: 10px;
+        font-size: 14pt;
+        cursor: pointer;
+      }
+    </style>
   </head>
   <body>
-    <dot-hr style="--hr-dots-number: 5"></dot-hr>
+    <div class="container">
+      <div class="nav">
+        <h1>Dotted style horizontal rule web component</h1>
+        <div class="form-check form-switch form-switch-lg">
+          <label class="form-check-label noselect" for="color-switch"
+            >light</label
+          >
+          <input
+            class="form-check-input"
+            type="checkbox"
+            role="switch"
+            id="color-switch"
+            onchange="javascript:colorSwitch()"
+          />
+          <label class="form-check-label noselect" for="color-switch"
+            >dark</label
+          >
+        </div>
+      </div>
+      <hr />
+      <p>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloremque a
+        dolorum quidem exercitationem dolores facilis soluta repudiandae
+        voluptates asperiores nesciunt voluptatibus ipsa laboriosam, tempore
+        sunt veniam reprehenderit nobis! Asperiores, dolore?
+      </p>
+      <dot-hr style="--hr-dots-number: 5"></dot-hr>
+      <p>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloremque a
+        dolorum quidem exercitationem dolores facilis soluta repudiandae
+        voluptates asperiores nesciunt voluptatibus ipsa laboriosam, tempore
+        sunt veniam reprehenderit nobis! Asperiores, dolore?
+      </p>
+      <dot-hr style="--hr-dots-number: 5"></dot-hr>
+    </div>
   </body>
 </html>
