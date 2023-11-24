@@ -88,7 +88,7 @@ class customizedDotHr extends DotHr {
 
 ```
 
-## Customized star style
+## Customized style
 To customize the dotted hr style, you can use the css variables.
 
 | CSS variable           | Description |
